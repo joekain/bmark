@@ -63,7 +63,7 @@ function end_to_end_runner () {
   
   if [ "$1" == "--pending" -a -e $END_TO_END_TEST_DIR/*_test_p.sh ]; then
     echo "\nPending Integration Tests:"
-    for test in integration/*_test_p.sh ; do
+    for test in $END_TO_END_TEST_DIR/*_test_p.sh ; do
       $test
     done
   fi
