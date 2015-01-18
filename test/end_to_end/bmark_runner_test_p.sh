@@ -16,7 +16,7 @@ function cleanup() {
 }
 
 function run_example() {
-  mix bmark example > /dev/null || fail
+  mix bmark example | grep ":runner test is running" > /dev/null || fail "Did not run test"
 }
 
 function verify() {
