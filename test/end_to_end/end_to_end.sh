@@ -51,6 +51,10 @@ function result_file () {
   echo "$END_TO_END_OUTPUT_DIR/temp"
 }
 
+function data () {
+  echo "$END_TO_END_DATA_DIR/$1"
+}
+
 function gold () {
   echo "$END_TO_END_GOLD_DIR/$1"
 }
