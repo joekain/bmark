@@ -318,8 +318,12 @@ defmodule Bmark.Distribution do
   end
   
   defp lookup_row_by_df(df) do
-    {:ok, row} = Enum.fetch(@critical_value_table, df)
+    {:ok, row} = Enum.fetch(@critical_value_table, clamp(df) - 1)
     row
+  end
+  
+  defp clamp(df) do
+    min(df, Enum.count(@critical_value_table))
   end
   
   defp lookup_p(-1), do: 1
