@@ -4,7 +4,7 @@
 
 function main() {
   cd ../../
-  mix bmark.cmp $(data similar1.results) $(data similar2.results) || fail
+  mix bmark.cmp $(data similar1.results) $(data similar2.results) > /dev/null || fail
   pass
 }
 
