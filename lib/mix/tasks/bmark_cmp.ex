@@ -32,7 +32,6 @@ defmodule Mix.Tasks.Bmark.Cmp do
 
   defp load_results(results_file_name) do
     File.stream!(results_file_name)
-    |> Enum.to_list
     |> Enum.map(&String.strip(&1))
     |> Enum.map(&String.to_integer(&1))
   end
