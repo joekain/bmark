@@ -8,8 +8,9 @@ defmodule Mix.Tasks.Bmark.Cmp do
   def run(args) do
     args
     |> parse_args
-    |> compare
-    |> report_results
+    |> load_results
+    |> compare_results
+    |> report_difference
   end
 
   defp parse_args(args) do
@@ -23,17 +24,20 @@ defmodule Mix.Tasks.Bmark.Cmp do
     Kernel.exit("Usage: mix lifebench.cmp <results file 1> <results file 2>")
   end
 
-  defp compare(array_of_files) do
-    array_of_files
-    |> Enum.map(&load_results(&1))
-    |> Enum.map(&compute_stats(&1))
-    |> compute_t_value
+  defp load_results(array_of_filenames) do
+    Enum.map(array_of_filenames, &load_single_result_file/1)
   end
 
-  defp load_results(results_file_name) do
-    File.stream!(results_file_name)
+  defp load_single_result_file(filename) do
+    File.stream!(filename)
     |> Enum.map(&String.strip(&1))
     |> Enum.map(&String.to_integer(&1))
+  end
+
+  defp compare_results(array_of_results) do
+    array_of_results
+    |> Enum.map(&compute_stats(&1))
+    |> compute_t_value
   end
 
   defp compute_stats(results) do
@@ -74,7 +78,7 @@ defmodule Mix.Tasks.Bmark.Cmp do
     abs(u1 - u2) / :math.sqrt(a * b)
   end
 
-  defp report_results({[%Stats{mean: u1}, %Stats{mean: u2}] = stats, t}) do
+  defp report_difference({[%Stats{mean: u1}, %Stats{mean: u2}] = stats, t}) do
     IO.puts "#{u1} -> #{u2} (#{percent_increase(u1, u2)}) with p < #{t_dist(t, df(stats))}"
     IO.puts "t = #{t}, #{df(stats)} degrees of freedom"
   end
