@@ -30,14 +30,19 @@ defmodule Mix.Tasks.Bmark.Cmp do
 
   defp load_single_result_file(filename) do
     File.stream!(filename)
-    |> Enum.map(&String.strip(&1))
-    |> Enum.map(&String.to_integer(&1))
   end
-
+  
   defp compare_results(array_of_results) do
     array_of_results
+    |> Enum.map(&convert_to_integer(&1))
     |> Enum.map(&compute_stats(&1))
     |> compute_t_value
+  end
+  
+  defp convert_to_integer(results) do
+    results
+    |> Enum.map(&String.strip(&1))
+    |> Enum.map(&String.to_integer(&1))
   end
 
   defp compute_stats(results) do
