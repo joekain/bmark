@@ -24,16 +24,16 @@ defmodule Mix.Tasks.Bmark.Cmp do
     Kernel.exit("Usage: mix lifebench.cmp <results file 1> <results file 2>")
   end
 
-  defp load_results(array_of_filenames) do
-    Enum.map(array_of_filenames, &load_single_result_file/1)
+  defp load_results(list_of_filenames) do
+    Enum.map(list_of_filenames, &load_single_result_file/1)
   end
 
   defp load_single_result_file(filename) do
     File.stream!(filename)
   end
   
-  defp compare_results(array_of_results) do
-    array_of_results
+  defp compare_results(list_of_results) do
+    list_of_results
     |> Enum.map(&convert_to_integer(&1))
     |> Enum.map(&compute_stats(&1))
     |> compute_t_value
