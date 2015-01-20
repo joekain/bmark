@@ -9,6 +9,7 @@ defmodule Mix.Tasks.Bmark.Cmp do
     args
     |> parse_args
     |> load_results
+    |> report_results
     |> compare_results
     |> report_difference
   end
@@ -25,12 +26,20 @@ defmodule Mix.Tasks.Bmark.Cmp do
   end
 
   defp load_results(list_of_filenames) do
-    Enum.map(list_of_filenames, &load_single_result_file/1)
+    {
+      list_of_filenames |> Enum.map(&Path.basename/1),
+      Enum.map(list_of_filenames, &load_single_result_file/1)
+    }
   end
 
   defp load_single_result_file(filename) do
     File.stream!(filename)
     |> Enum.map(&String.strip(&1))
+  end
+  
+  defp report_results({list_of_headers, list_of_results}) do
+    Bmark.ResultFormatter.format(list_of_headers, list_of_results) |> IO.puts
+    list_of_results
   end
   
   defp compare_results(list_of_results) do
