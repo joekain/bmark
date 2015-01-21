@@ -37,6 +37,6 @@ defmodule Bmark.Server do
   end
 
   def run_benchmarks do
-    GenServer.call(:Bmark, :run)
+    GenServer.call(:Bmark, :run, :infinity)
   end
 end
