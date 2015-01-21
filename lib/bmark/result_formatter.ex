@@ -1,13 +1,13 @@
 defmodule Bmark.ResultFormatter do
   def format([left, right], [lresults, rresults]) do
-    initial = "#{left}  #{right}\n"
+    initial = "#{left}:  #{right}:\n"
     align = String.length(left)
     zip_filling_in_blanks_for_shorter_list(lresults, rresults)
     |> List.foldl(initial, fn (elem, acc) -> acc <> format_pair(elem, align) end)
   end
   
   defp format_pair({x, y}, align) do
-    "#{String.ljust(x, align)}  #{y}\n"
+    "#{String.ljust(x, align + 1)}  #{y}\n"
   end
   
   defp zip_filling_in_blanks_for_shorter_list([], []), do: []

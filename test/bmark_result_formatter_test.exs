@@ -8,7 +8,7 @@ defmodule Bmark.ResultFormatterTest do
     results = [ [], [] ]
     
     assert ResultFormatter.format(headers, results) == """
-    left  right
+    left:  right:
     """
   end
 
@@ -18,9 +18,9 @@ defmodule Bmark.ResultFormatterTest do
 
     assert ResultFormatter.format(headers, results) ==
     """
-    left  right
-    1     3
-    2     4
+    left:  right:
+    1      3
+    2      4
     """
   end
 
@@ -30,10 +30,10 @@ defmodule Bmark.ResultFormatterTest do
 
     assert ResultFormatter.format(headers, results) ==
     """
-    left  right
-    1     3
-    2     4
-          5
+    left:  right:
+    1      3
+    2      4
+           5
     """
   end
   
@@ -43,10 +43,10 @@ defmodule Bmark.ResultFormatterTest do
 
     assert ResultFormatter.format(headers, results) ==
     """
-    left  right
-    1     3
-    2     4
-    5     
+    left:  right:
+    1      3
+    2      4
+    5      
     """
   end
 end
