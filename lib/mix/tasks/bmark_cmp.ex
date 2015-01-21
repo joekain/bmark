@@ -27,9 +27,13 @@ defmodule Mix.Tasks.Bmark.Cmp do
 
   defp load_results(list_of_filenames) do
     {
-      list_of_filenames |> Enum.map(&Path.basename/1),
+      list_of_filenames |> Enum.map(&filename_path_to_header/1),
       Enum.map(list_of_filenames, &load_single_result_file/1)
     }
+  end
+  
+  defp filename_path_to_header(filename) do
+    Path.relative_to_cwd(filename)
   end
 
   defp load_single_result_file(filename) do
