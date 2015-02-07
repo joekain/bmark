@@ -1,13 +1,13 @@
-defmodule Bmark.ResultFormatterTest do
+defmodule Bmark.ComparisonFormatterTest do
   use ExUnit.Case
   
-  alias Bmark.ResultFormatter
+  alias Bmark.ComparisonFormatter
 
   test "it should format the headers" do
     headers = ["left", "right"]    
     results = [ [], [] ]
     
-    assert ResultFormatter.format(headers, results) == """
+    assert ComparisonFormatter.format(headers, results) == """
     left:  right:
     """
   end
@@ -16,7 +16,7 @@ defmodule Bmark.ResultFormatterTest do
     headers = ["left", "right"]
     results = [ ["1", "2"],  ["3", "4"] ]
 
-    assert ResultFormatter.format(headers, results) ==
+    assert ComparisonFormatter.format(headers, results) ==
     """
     left:  right:
     1      3
@@ -28,7 +28,7 @@ defmodule Bmark.ResultFormatterTest do
     headers = ["left", "right"]
     results = [ ["1", "2"],  ["3", "4", 5] ]
 
-    assert ResultFormatter.format(headers, results) ==
+    assert ComparisonFormatter.format(headers, results) ==
     """
     left:  right:
     1      3
@@ -41,7 +41,7 @@ defmodule Bmark.ResultFormatterTest do
     headers = ["left", "right"]
     results = [ ["1", "2", "5"],  ["3", "4"] ]
 
-    assert ResultFormatter.format(headers, results) ==
+    assert ComparisonFormatter.format(headers, results) ==
     """
     left:  right:
     1      3

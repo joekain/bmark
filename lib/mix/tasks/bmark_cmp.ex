@@ -42,7 +42,7 @@ defmodule Mix.Tasks.Bmark.Cmp do
   end
   
   defp report_results({list_of_headers, list_of_results}) do
-    Bmark.ResultFormatter.format(list_of_headers, list_of_results) |> IO.puts
+    Bmark.ComparisonFormatter.format(list_of_headers, list_of_results) |> IO.puts
     list_of_results
   end
   
