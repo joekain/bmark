@@ -1,10 +1,8 @@
 defmodule Bmark.Server do
   use GenServer
 
-  @number_of_runs 10
-
   defmodule BmarkEntry do
-    defstruct module: :none, name: :none
+    defstruct module: :none, name: :none, runs: :none
   end
 
   def handle_cast({:add, entry}, state) do
@@ -19,7 +17,7 @@ defmodule Bmark.Server do
     {
       entry.module,
       entry.name,
-      Stream.repeatedly(fn -> time(entry) end) |> Stream.take(@number_of_runs) |> Enum.to_list
+      Stream.repeatedly(fn -> time(entry) end) |> Stream.take(entry.runs) |> Enum.to_list
     }
   end
 
@@ -32,8 +30,8 @@ defmodule Bmark.Server do
     {:ok, _pid} = GenServer.start_link(__MODULE__, [], name: :Bmark)
   end
 
-  def add(module, name) do
-    GenServer.cast(:Bmark, {:add, %{module: module, name: name}})
+  def add(module, name, runs) do
+    GenServer.cast(:Bmark, {:add, %{module: module, name: name, runs: runs}})
   end
 
   def run_benchmarks do
