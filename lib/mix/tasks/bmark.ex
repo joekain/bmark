@@ -30,18 +30,26 @@ defmodule Mix.Tasks.Bmark do
   end
 
   defp report(results) do
-    Enum.map(results, &report_single_result(&1))
+    Enum.map(results, &report_single_bmark(&1))
   end
 
-  defp report_single_result({module, name, list_of_times}) do
-    mod = simplify_module_name(module)
-    File.open("results/#{mod}.#{name}.results", [:write], fn(file) ->
-      Enum.map(list_of_times, &IO.puts(file, &1))
+  defp report_single_bmark({module, name, list_of_times}) do
+    filename = report_file_name(module, name)
+    File.open(filename, [:write], fn(file) ->
+      report_single_time(list_of_times, file)
     end)
   end
 
+  defp report_file_name(module, name), do: "results/#{simplify_module_name(module)}.#{name}.results"
+
+  defp report_single_time(list_of_times, file), do: Enum.map(list_of_times, &IO.puts(file, &1))
+
   defp simplify_module_name(module) do
+    strip_elixir_from_module_name(module) |> String.downcase
+  end
+
+  defp strip_elixir_from_module_name(module) do
     ["Elixir", mod] = Atom.to_string(module) |> String.split(".", parts: 2)
-    mod |> String.downcase
+    mod
   end
 end
