@@ -9,4 +9,8 @@ defmodule Example do
   bmark :count do
     IO.puts ":count test running 5 times"
   end
+
+  bmark :after_count do
+    IO.puts ":after_count test running"
+  end
 end

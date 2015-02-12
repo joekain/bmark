@@ -25,5 +25,7 @@ defmodule Bmark do
     end
 
     f.(runs)
+
+    Module.delete_attribute(module, :runs)
   end
 end
