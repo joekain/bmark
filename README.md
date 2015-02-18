@@ -93,6 +93,6 @@ and it bmark will show the following comparison data:
     24366622.5 -> 6469755.9 (-73.45%) with p < 0.0005
     t = 391.56626146910503, 18 degrees of freedom
 
-1. The first section contains the raw result data presented side-by-side.
-2. The next line shows the change in mean (average) from RunA to RunB, the percentage chagne and the confidence value.  You can interpret this as saying there is 1 - p, or a greater than 99.95% confidence that the change in means is statistically significant.
+1. The first section contains the raw result data presented side-by-side.  This is the same data your would get by looking at RunA.results and RunB.results.
+2. The next line shows the change in mean (average) between the two runs. Next, it shows the percentage change and finally confidence value.  You can interpret this as saying there is `1 - p`, or a greater than 99.95% confidence that the change in means is statistically significant.
 3. The final line shows the t value and degrees of freedom.  This is the raw statistical data used to compute the confidence value.
