@@ -22,3 +22,50 @@ Bmark answers this questions using statistical hytpotesis testing.  Given two se
     t = 391.56626146910503, 18 degrees of freedom
 
 This shows that RunA ran in an average of 24366622.5 ms and RunB ran in an average of 6469755.9 ms and that the runtime improved by 73.45% which is statistically meaningful with a confidence level of 99.95%.
+
+## Usage
+
+### Writing Benchmarks
+
+To create a benchmark withing bmark write a module and use the `bmark` function to create a file ending in `_bmark.exs`.  Put the file in a directory called `bmark`.  Alltogether, that should look like this
+
+    Project Root
+    +-- bmark
+    |   +-- example_bmark.exs
+    +-- lib
+    |   +-- your_project_files
+    +-- mix.exs
+
+In `example_bmark.exs` you should include a module and benchmark function created by using `bmark` 
+like this:
+
+```elixir
+defmodule Example do
+  use Bmark
+
+  bmark :runner do
+    IO.puts ":runner test is running"
+  end
+  
+  bmark :benchmark_with_runs, runs: 5 do
+    IO.puts "test running 5 times"
+  end
+end
+```
+
+The `:runner` benchmark will be run 10 times, the default number of runs.  `:benchmark_with_runs` specifies the `:runs` option and will be run only 5 times.
+
+### Running Benchmarks
+
+To run all benchmarks run:
+
+    $ mix bmark
+
+This will produce the files
+
+    Project Root
+    +-- results
+    |   +-- example.runner.results
+    |   +-- example.benchmark_with_runs.results
+    
+which will contain the run times, in miliseconds, for each run of the benchmark.
