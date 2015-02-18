@@ -69,3 +69,30 @@ This will produce the files
     |   +-- example.benchmark_with_runs.results
     
 which will contain the run times, in miliseconds, for each run of the benchmark.
+
+### Comparing Benchmark Results
+
+If you have two results files you can compare them by running
+
+    $ mix bmark.cmp results/RunA.results results/RunB.results
+    
+and it bmark will show the following comparison data:
+
+    RunA:                                 RunB:
+    24274268                              6426990
+    24563751                              6416149
+    24492221                              6507946
+    24516553                              6453309
+    24335224                              6491314
+    24158102                              6405073
+    24357174                              6504260
+    24213098                              6449789
+    24466586                              6532929
+    24289248                              6509800
+    
+    24366622.5 -> 6469755.9 (-73.45%) with p < 0.0005
+    t = 391.56626146910503, 18 degrees of freedom
+
+1. The first section contains the raw result data presented side-by-side.
+2. The next line shows the change in mean (average) from RunA to RunB, the percentage chagne and the confidence value.  You can interpret this as saying there is 1 - p, or a greater than 99.95% confidence that the change in means is statistically significant.
+3. The final line shows the t value and degrees of freedom.  This is the raw statistical data used to compute the confidence value.
