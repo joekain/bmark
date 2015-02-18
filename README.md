@@ -76,7 +76,7 @@ If you have two results files you can compare them by running
 
     $ mix bmark.cmp results/RunA.results results/RunB.results
     
-and it bmark will show the following comparison data:
+and bmark will show the following comparison data:
 
     RunA:                                 RunB:
     24274268                              6426990
@@ -94,5 +94,5 @@ and it bmark will show the following comparison data:
     t = 391.56626146910503, 18 degrees of freedom
 
 1. The first section contains the raw result data presented side-by-side.  This is the same data your would get by looking at RunA.results and RunB.results.
-2. The next line shows the change in mean (average) between the two runs. Next, it shows the percentage change and finally confidence value.  You can interpret this as saying there is `1 - p`, or a greater than 99.95% confidence that the change in means is statistically significant.
-3. The final line shows the t value and degrees of freedom.  This is the raw statistical data used to compute the confidence value.
+2. The next line shows the change in mean (average) between the two runs. Next, it shows the percentage change and finally confidence value.  You can interpret this as saying there is `1 - p`, or a greater than 99.95% confidence that the change in means is statistically significant.  That is, the smaller the value of `p` the more confident you can be in the change in performance.
+3. The final line shows the `t` value and degrees of freedom.  This is the raw statistical data used to compute the confidence value.
