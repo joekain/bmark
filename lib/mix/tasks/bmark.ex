@@ -1,6 +1,16 @@
 defmodule Mix.Tasks.Bmark do
   use Mix.Task
   
+  @shortdoc "Run bmark benchmark functions"
+  
+  @moduledoc """
+   ## Usage
+       mix bmark
+       
+   Runs all benchmarks matching the pattern bmark/*_bmark.ex.  Results of the tests will
+   be written to results/<benchmark name>.results.
+   """
+  
   def run(_args) do
     setup_project
     start_server
