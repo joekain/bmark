@@ -1,7 +1,18 @@
 defmodule Bmark.Server do
   use GenServer
+  
+  @moduledoc """
+  The Bmark server maintains a list of benchmarks registered with the `bmark` module.  It
+  can also run all benchmarks in the list.
+  """
 
   defmodule BmarkEntry do
+    @moduledoc """
+    BmarkEntry holds a single benchmark entry for the list.
+    * `module`  - The module that contains the bmark function.
+    * `name`    - The benchmark name (also the name of the underlying function)
+    * `runs`    - The number of times to run the benchmark.
+    """
     defstruct module: :none, name: :none, runs: :none
   end
 
@@ -26,14 +37,27 @@ defmodule Bmark.Server do
     time
   end
 
+  @doc """
+  Start the Bmark server.
+  """
   def start do
     {:ok, _pid} = GenServer.start_link(__MODULE__, [], name: :Bmark)
   end
 
+  @doc """
+  Add a new benchmark to the list.
+  
+  `module`  - The module that contains the bmark function.
+  `name`    - The benchmark name (also the name of the underlying function)
+  `runs`    - The number of times to run the benchmark.
+  """
   def add(module, name, runs) do
     GenServer.cast(:Bmark, {:add, %{module: module, name: name, runs: runs}})
   end
 
+  @doc """
+  Run all the benchmarks and write results.
+  """
   def run_benchmarks do
     GenServer.call(:Bmark, :run, :infinity)
   end
