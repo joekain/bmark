@@ -36,9 +36,7 @@ defmodule Mix.Tasks.Bmark.Cmp do
     |> report_difference
   end
 
-  @doc """
-  Extracts eactly two files names from `args` or prints the usage and exits.
-  """
+  # Extracts eactly two files names from `args` or prints the usage and exits.
   defp parse_args(args) do
     case OptionParser.parse(args, strict: []) do
       {[], [name1, name2], []} -> [name1, name2]
@@ -57,10 +55,8 @@ defmodule Mix.Tasks.Bmark.Cmp do
     }
   end
   
-  @doc """
-  Trims current working directory from the filename to produce a shorter string to be used as a
-  column header for the report.
-  """
+  # Trims current working directory from the filename to produce a shorter string to be used as a
+  # column header for the report.
   defp filename_path_to_header(filename) do
     Path.relative_to_cwd(filename)
   end

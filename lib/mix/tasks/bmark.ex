@@ -36,9 +36,7 @@ defmodule Mix.Tasks.Bmark do
     Bmark.Server.start
   end
 
-  @doc """  
-  Setup a exit handler that runs the benchmarks and writes the result reports.
-  """
+  # Setup a exit handler that runs the benchmarks and writes the result reports.
   defp setup_exit_handler do
     System.at_exit(fn
       0 -> Bmark.Server.run_benchmarks |> report
@@ -50,9 +48,7 @@ defmodule Mix.Tasks.Bmark do
     Enum.map(results, &report_single_bmark(&1))
   end
 
-  @doc """  
-  This is the worker for report generation.  It actually writes the files.
-  """
+  # This is the worker for report generation.  It actually writes the files.
   defp report_single_bmark({module, name, list_of_times}) do
     filename = report_file_name(module, name)
     File.open(filename, [:write], fn(file) ->
