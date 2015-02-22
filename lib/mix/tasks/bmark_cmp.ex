@@ -15,9 +15,18 @@ defmodule Mix.Tasks.Bmark.Cmp do
    """
   
   defmodule Stats do
+    @moduledoc """
+    Stores statistics from a bmark result file
+    * `count`    - The number of runs in the results file.
+    * `mean`     - The arithmetic mean of the results from the file
+    * `stdev`    - The standard deviation of the results from the file
+    """
     defstruct count: 0, mean: 0, stdev: 0
   end
 
+  @doc """
+  The task run function processes the arguments into a report.
+  """
   def run(args) do
     args
     |> parse_args
@@ -27,6 +36,9 @@ defmodule Mix.Tasks.Bmark.Cmp do
     |> report_difference
   end
 
+  @doc """
+  Extracts eactly two files names from `args` or prints the usage and exits.
+  """
   defp parse_args(args) do
     case OptionParser.parse(args, strict: []) do
       {[], [name1, name2], []} -> [name1, name2]
@@ -45,6 +57,10 @@ defmodule Mix.Tasks.Bmark.Cmp do
     }
   end
   
+  @doc """
+  Trims cwd from the filename to produce a shorter string to be used as a column header for the
+  report.
+  """
   defp filename_path_to_header(filename) do
     Path.relative_to_cwd(filename)
   end
