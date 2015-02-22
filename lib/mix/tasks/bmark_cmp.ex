@@ -58,8 +58,8 @@ defmodule Mix.Tasks.Bmark.Cmp do
   end
   
   @doc """
-  Trims cwd from the filename to produce a shorter string to be used as a column header for the
-  report.
+  Trims current working directory from the filename to produce a shorter string to be used as a
+  column header for the report.
   """
   defp filename_path_to_header(filename) do
     Path.relative_to_cwd(filename)
@@ -74,7 +74,7 @@ defmodule Mix.Tasks.Bmark.Cmp do
     Bmark.ComparisonFormatter.format(list_of_headers, list_of_results) |> IO.puts
     list_of_results
   end
-  
+
   defp compare_results(list_of_results) do
     list_of_results
     |> Enum.map(&convert_to_integer(&1))
