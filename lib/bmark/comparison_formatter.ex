@@ -1,4 +1,14 @@
 defmodule Bmark.ComparisonFormatter do
+  @moduledoc """
+  Formatting module for bmark results.
+  """
+  
+  @doc """
+  This function formats a comparison report.  It accepts two pairs of values.  The first
+  argument is a list of 2 headers.  The second argument is a list of two result lists.
+  
+  `format` prints the headers and results side by side.
+  """
   def format([left, right], [lresults, rresults]) do
     header(left, right) <>
     side_by_side_results(lresults, rresults, alignment(left))      
