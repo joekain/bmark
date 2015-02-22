@@ -130,7 +130,7 @@ defmodule Mix.Tasks.Bmark.Cmp do
     n1 + n2 - 2
   end
 
-  def percent_increase(u1, u2) do
+  defp percent_increase(u1, u2) do
     percent = 100 * (u2 - u1) / u1
     percent_s = Float.to_string(percent, [decimals: 2])
     cond do
