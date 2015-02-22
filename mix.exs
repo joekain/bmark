@@ -3,28 +3,23 @@ defmodule Bmark.Mixfile do
 
   def project do
     [app: :bmark,
-     version: "0.0.1",
+     version: "1.0.0",
      elixir: "~> 1.0.0",
-     deps: deps]
+     deps: deps,
+     description: description]
   end
 
-  # Configuration for the OTP application
-  #
-  # Type `mix help compile.app` for more information
   def application do
     [applications: [:logger]]
   end
 
-  # Dependencies can be Hex packages:
-  #
-  #   {:mydep, "~> 0.3.0"}
-  #
-  # Or git/path repositories:
-  #
-  #   {:mydep, git: "https://github.com/elixir-lang/mydep.git", tag: "0.1.0"}
-  #
-  # Type `mix help deps` for more examples and options
   defp deps do
     [{:inch_ex, only: :docs}]
+  end
+  
+  defp description do
+    """
+    A benchmarking tool for Elixr with a focus on comparing results with confidence.
+    """
   end
 end
