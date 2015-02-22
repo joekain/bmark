@@ -313,8 +313,8 @@ defmodule Bmark.Distribution do
   @doc """
   Lookup the ciritcal values of the t distribution.
   
-  val: A value to lookup in the t-distribution.
-  df:  degrees of freedom for the distribution
+  `val` A value to lookup in the t-distribution.
+  `df`  degrees of freedom for the distribution
   """
   def t(val, df) do
     index_of_lower_critical_t_value(val, df)

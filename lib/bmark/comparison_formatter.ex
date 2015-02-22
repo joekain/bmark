@@ -4,10 +4,11 @@ defmodule Bmark.ComparisonFormatter do
   """
   
   @doc """
-  This function formats a comparison report.  It accepts two pairs of values.  The first
-  argument is a list of 2 headers.  The second argument is a list of two result lists.
+  This function formats a comparison report with the headers and results side by side. It accepts
+  two pairs of values.
   
-  `format` prints the headers and results side by side.
+  `[left, right]`        the left and right headers.
+  `[lresults, rresults]` the left and right results list.
   """
   def format([left, right], [lresults, rresults]) do
     header(left, right) <>
