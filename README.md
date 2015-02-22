@@ -104,11 +104,7 @@ The final line shows the `t` value and degrees of freedom.  This is the raw stat
 
 ## More Information
 
-Bmark development has been described in detail on my blog [Learning Elixir](http://learningelixir.joekain.com/)
-
-* [Comparing Benchmark Results with Elixir](http://learningelixir.joekain.com/comparing-benchmark-results-with-elixir/)
-* [Automating Comparison of Benchmark Results with Elixir](http://learningelixir.joekain.com/automating-comparison-of-benchmark-results-with-elixir/)
-* [Bmark - A benchmarking tool for elixir](http://learningelixir.joekain.com/bmark-a-benchmarking-tool-for-elixir/)
+Bmark development has been described in detail on my blog [Learning Elixir](http://learningelixir.joekain.com/) you can find all the related posts on [Bmark page](http://learningelixir.joekain.com/bmark-posts/)
 
 ## Contributing
 
