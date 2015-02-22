@@ -8,3 +8,6 @@ otp_release:
 - 17.1
 script:
 - ./test.sh
+after_script:
+  - MIX_ENV=docs mix deps.get
+  - MIX_ENV=docs mix inch.report
