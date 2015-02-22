@@ -27,6 +27,12 @@ This shows that RunA ran in an average of 24366622.5 ms and RunB ran in an avera
 
 ## Usage
 
+Add Bmark as a depdency in your mix.exs file:
+
+    def deps do
+      [ {:bmark, "~> 1.0.0"} ]
+    end
+
 ### Writing Benchmarks
 
 To create a benchmark with bmark, create a file ending in `_bmark.exs`.  Put the file in a directory called `bmark`.  Alltogether, that should look like this
