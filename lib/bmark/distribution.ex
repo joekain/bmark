@@ -1,4 +1,8 @@
 defmodule Bmark.Distribution do
+  @moduledoc """
+  This module implements an Inverse Student's t-distribution.
+  """
+  
   @p_value_table [
      0.05,       0.025,     0.01,      0.005,       0.0025,     0.001,      0.0005
   ]
@@ -306,6 +310,12 @@ defmodule Bmark.Distribution do
     [1.649966,	 1.967930,	2.338884,	 2.592372,	  2.828018,	  3.117712,	  3.323362],
   ]
   
+  @doc """
+  Lookup the ciritcal values of the t distribution.
+  
+  val: A value to lookup in the t-distribution.
+  df:  degrees of freedom for the distribution
+  """
   def t(val, df) do
     index_of_lower_critical_t_value(val, df)
     |> lookup_p
