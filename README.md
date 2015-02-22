@@ -104,7 +104,7 @@ The final line shows the `t` value and degrees of freedom.  This is the raw stat
 
 ## More Information
 
-Bmark development has been described in detail on my blog [Learning Elixir](http://learningelixir.joekain.com/) you can find all the related posts on [Bmark page](http://learningelixir.joekain.com/bmark-posts/)
+Bmark development has been described in detail on my blog [Learning Elixir](http://learningelixir.joekain.com/) you can find all the related posts on the [Bmark page](http://learningelixir.joekain.com/bmark-posts/)
 
 ## Contributing
 
