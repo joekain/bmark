@@ -28,7 +28,7 @@ defmodule Bmark.Server do
     {
       entry.module,
       entry.name,
-      Stream.repeatedly(fn -> time(entry) end) |> Stream.take(entry.runs) |> Enum.to_list
+      Stream.repeatedly(fn -> time(entry) end) |> Stream.take(entry.runs)
     }
   end
 
