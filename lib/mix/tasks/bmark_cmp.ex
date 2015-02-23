@@ -9,7 +9,7 @@ defmodule Mix.Tasks.Bmark.Cmp do
        
    Compares a pair of benchmark results.  
    
-   <result1> and <result2> should be results files written by bmark for different runs of
+   result1 and result2 should be results files written by bmark for different runs of
    the same benchmark.  bmark.cmp will compare the two results and will report the statistical
    significance of the difference in their means.
    """

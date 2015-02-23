@@ -4,24 +4,24 @@ defmodule Bmark do
   
   ## Example
   
-    # File: bmark/example_bmark.ex
-  
-    # Create a module and use `Bmark`.
-    defmodule Example do
-      use Bmark
-
-      bmark :runner do
-        IO.puts ":runner test is running"
+      # File: bmark/example_bmark.ex
+      
+      # Create a module and use `Bmark`.
+      defmodule Example do
+        use Bmark
+      
+        bmark :runner do
+          IO.puts ":runner test is running"
+        end
+      
+        bmark :benchmark_with_runs, runs: 5 do
+          IO.puts "test running 5 times"
+        end
       end
-  
-      bmark :benchmark_with_runs, runs: 5 do
-        IO.puts "test running 5 times"
-      end
-    end
   
   To run the benchmarks above run
   
-    mix bmark
+      mix bmark
     
   which will write results to results/example.runner.results and
   results/example.benchmark_with_runs.results.
@@ -30,7 +30,7 @@ defmodule Bmark do
   
   Given two results files you can compare the results using
   
-    mix bmark.cmp results/RunA.results results/RunB.results
+      mix bmark.cmp results/RunA.results results/RunB.results
   """
   
   @doc false
@@ -47,16 +47,16 @@ defmodule Bmark do
   
   ## Examples
   
-    bmark :runner do
-      IO.puts ":runner test is running"
-    end
+      bmark :runner do
+        IO.puts ":runner test is running"
+      end
   
   By default a benchmark with run 10 times. But a benchmark can specify and optional number of
   runs by using the runs: option as in this example:
   
-    bmark :benchmark_with_runs, runs: 5 do
-      IO.puts "test running 5 times"
-    end
+      bmark :benchmark_with_runs, runs: 5 do
+        IO.puts "test running 5 times"
+      end
   
   This example will run the benchmark only 5 times.
   """
