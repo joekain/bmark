@@ -1,6 +1,6 @@
 # Bmark
 
-[![Build Status](https://travis-ci.org/joekain/bmark.svg?branch=master)](https://travis-ci.org/joekain/bmark)  [![Inline docs](http://inch-ci.org/github/joekain/bmark.svg?branch=master)](http://inch-ci.org/github/joekain/bmark)
+[![Build Status](https://travis-ci.org/joekain/bmark.svg?branch=master)](https://travis-ci.org/joekain/bmark)  [![Inline docs](http://inch-ci.org/github/joekain/bmark.svg?branch=master)](http://inch-ci.org/github/joekain/bmark)  [![Package](https://img.shields.io/hexpm/v/bmark.svg)](https://hex.pm/packages/bmark)
 
 Bmark is a benchmarking tool for Elixir.  It allows easy benchmarking of Elixir functions.  It also supports comparing sets of benchmarking results.
 
