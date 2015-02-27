@@ -60,7 +60,7 @@ defmodule Bmark do
   
   This example will run the benchmark only 5 times.
   """
-  defmacro bmark(name, options \\ [runs: 10], [do: body]) do
+  defmacro bmark(name, options \\ [runs: 20], [do: body]) do
     runs = Keyword.get(options, :runs)
     quote bind_quoted: binding do
       Bmark.Server.add(__ENV__.module, name, runs)
