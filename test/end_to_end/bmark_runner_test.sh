@@ -21,7 +21,7 @@ function run_example() {
 
 function verify() {
   [ -f $EXPECTED_OUTPUT ] || fail "No results file $EXPECTED_OUTPUT"
-  wc -l $EXPECTED_OUTPUT | grep "10" > /dev/null || fail "Wrong number of results"
+  wc -l $EXPECTED_OUTPUT | grep "20" > /dev/null || fail "Wrong number of results"
   pass
 }
 

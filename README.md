@@ -61,7 +61,7 @@ defmodule Example do
 end
 ```
 
-The `:runner` benchmark will be run 10 times, the default number of runs.  `:benchmark_with_runs` specifies the `:runs` option and will be run only 5 times.
+The `:runner` benchmark will be run 20 times, the default number of runs.  `:benchmark_with_runs` specifies the `:runs` option and will be run only 5 times.
 
 ### Running Benchmarks
 
