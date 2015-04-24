@@ -24,7 +24,7 @@ defmodule Bmark.Mixfile do
 
   defp description do
     """
-    A benchmarking tool for Elixr with a focus on comparing results with confidence.
+    A benchmarking tool for Elixir with a focus on comparing results with confidence.
     """
   end
 
