@@ -1,16 +1,17 @@
 defmodule Mix.Tasks.Bmark do
   use Mix.Task
-  
+
   @shortdoc "Run bmark benchmark functions"
-  
+
   @moduledoc """
   ## Usage
       mix bmark
-       
+
   Runs all benchmarks matching the pattern bmark/*_bmark.ex.  Results of the tests will
-  be written to results/<benchmark name>.results.
+  be written to results/<benchmark name>.results.  The results directory will be created
+  if necessary.
   """
-  
+
   @doc """
   The task run function does all the setup for the bmark environment and registers an exit
   handler that will actually run the benchmarks.
@@ -45,7 +46,12 @@ defmodule Mix.Tasks.Bmark do
   end
 
   defp report(results) do
+    create_results_directory
     Enum.map(results, &report_single_bmark(&1))
+  end
+
+  def create_results_directory do
+    File.mkdir_p!("results")
   end
 
   # This is the worker for report generation.  It actually writes the files.
