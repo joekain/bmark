@@ -19,7 +19,7 @@ Bmark answers this questions using statistical hytpotesis testing.  Given two se
     24213098                              6449789
     24466586                              6532929
     24289248                              6509800
-    
+
     24366622.5 -> 6469755.9 (-73.45%) with p < 0.0005
     t = 391.56626146910503, 18 degrees of freedom
 
@@ -35,16 +35,16 @@ Add Bmark as a depdency in your mix.exs file:
 
 ### Writing Benchmarks
 
-To create a benchmark with bmark, create a file ending in `_bmark.exs`.  Put the file in a directory called `bmark`.  Alltogether, that should look like this
+To create a benchmark with bmark, create a file ending in `_bmark.ex`.  Put the file in a directory called `bmark`.  Alltogether, that should look like this
 
     Project Root
     +-- bmark
-    |   +-- example_bmark.exs
+    |   +-- example_bmark.ex
     +-- lib
     |   +-- your_project_files
     +-- mix.exs
 
-In `example_bmark.exs` you should include a module and benchmark function created by using `bmark` 
+In `example_bmark.ex` you should include a module and benchmark function created by using `bmark`
 like this:
 
 ```elixir
@@ -54,7 +54,7 @@ defmodule Example do
   bmark :runner do
     IO.puts ":runner test is running"
   end
-  
+
   bmark :benchmark_with_runs, runs: 5 do
     IO.puts "test running 5 times"
   end
@@ -75,7 +75,7 @@ This will produce the files
     +-- results
     |   +-- example.runner.results
     |   +-- example.benchmark_with_runs.results
-    
+
 which will contain the run times, in miliseconds, for each run of the benchmark.
 
 ### Comparing Benchmark Results
@@ -83,7 +83,7 @@ which will contain the run times, in miliseconds, for each run of the benchmark.
 If you have two results files you can compare them by running
 
     $ mix bmark.cmp results/RunA.results results/RunB.results
-    
+
 and bmark will print out the comparison.  Here's an example of the comparison with explantions for each section:
 
     RunA:                                 RunB:
@@ -97,7 +97,7 @@ and bmark will print out the comparison.  Here's an example of the comparison wi
     24213098                              6449789
     24466586                              6532929
     24289248                              6509800
-    
+
 The section above contains the raw result data presented side-by-side.  This is the same data your would get by looking at RunA.results and RunB.results.
 
     24366622.5 -> 6469755.9 (-73.45%) with p < 0.0005
