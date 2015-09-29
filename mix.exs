@@ -30,7 +30,7 @@ defmodule Bmark.Mixfile do
 
   defp package do
     [files: ["lib", "mix.exs", "README.md", "LICENSE", "CONTRIBUTING.md"],
-     contributors: ["Joseph Kain"],
+     maintainers: ["Joseph Kain"],
      licenses: ["MIT"],
      links: %{
        "github" => "https://github.com/joekain/bmark",
