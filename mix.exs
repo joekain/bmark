@@ -17,8 +17,8 @@ defmodule Bmark.Mixfile do
   defp deps do
     [
       {:inch_ex, only: :docs},
-      {:earmark, "~> 0.1", only: :dev},
-      {:ex_doc, "~> 0.7", only: :dev}
+      {:earmark, "~> 0.1.17", only: :dev},
+      {:ex_doc, "~> 0.10", only: :dev}
     ]
   end
 
