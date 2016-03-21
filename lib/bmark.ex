@@ -62,6 +62,7 @@ defmodule Bmark do
   """
   defmacro bmark(name, options \\ [runs: 20], [do: body]) do
     runs = Keyword.get(options, :runs)
+    body = Macro.escape(body, unqote: true)
     quote bind_quoted: binding do
       Bmark.Server.add(__ENV__.module, name, runs)
       def unquote(name)(), do: unquote(body)
