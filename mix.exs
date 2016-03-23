@@ -3,7 +3,7 @@ defmodule Bmark.Mixfile do
 
   def project do
     [app: :bmark,
-     version: "1.0.2",
+     version: "1.0.3",
      elixir: "~> 1.0",
      deps: deps,
      description: description,
