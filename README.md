@@ -6,7 +6,7 @@ Bmark is a benchmarking tool for Elixir.  It allows easy benchmarking of Elixir 
 
 Comparing benchmarking results is a topic that I have struggled with for years.  I run a benchmark several times and get varying results.  Then, I make a change to my program and I want to decide if the change causes an improvement in the benchmark score.  I rerun the benchmark several times and again get varying results.  How do I compare these results?  I can compare average score, but is that accurate?  How do I tell if the mean of the second run is large enough to be meaningful?  How do I know if it is "in the noise?"
 
-Bmark answers this questions using statistical hytpotesis testing.  Given two sets of benchmark runs, bmark can show:
+Bmark answers this questions using statistical hypothesis testing.  Given two sets of benchmark runs, bmark can show:
 
     RunA:                                 RunB:
     24274268                              6426990
